@@ -1,7 +1,7 @@
 <template>
     <div class="container-md">
         <form style="max-width: 400px" class="border px-5 py-4 mx-auto mt-5 rounded">
-            <h2 class="my-3">Login</h2>
+            <h3 class="my-3">Login</h3>
             <div v-if="error" class="alert alert-danger" role="alert">
                 {{errorMessage}}
             </div>
@@ -13,8 +13,9 @@
                 <label for="password" class="form-label">Password</label>
                 <input v-model="password" type="password" class="form-control" id="password">
             </div>
-            <button @click="login()" type="button" class="btn btn-primary">Submit</button>
+            <button @click="login()" type="button" class="btn btn-primary">Login</button>
             <div class="my-3">
+                <p>forgot password? change password <a href="/#/c/email">here</a></p>
                 <span>Don't have account? Register <a href="/#/register">here</a></span>
             </div>
         </form>
@@ -48,7 +49,7 @@ export default {
                     } else {
                         this.error = false
                         this.$store.token = user.data.token;
-                        this.$router.push({name: 'home'});
+                        this.$router.push({path: '/home'});
                     }
                 })
                 .catch(err => {

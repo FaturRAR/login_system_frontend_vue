@@ -33,15 +33,16 @@ export default {
     }, 
     methods: {
         getUser(){
-            Services.getUser(this.$store.token)
+            Services.getAllUser(this.$store.token)
                 .then(user => {
                         this.users = user.data;
                     })
                 .catch(() => {
-                    this.$router.push({name: 'login'})
+                    this.$router.push({path: '/login'})
                 })
         },
         deleteUser(id) {
+            if(confirm('are you sure delete this user ?')){
             Services.deleteUser(id, this.$store.token)
                 .then(() => {
                     this.getUser();
@@ -49,9 +50,10 @@ export default {
                 .catch(err => {
                     console.error(err)
                 })
+            }
         },
         logout() {
-            this.$router.push({name: 'login'})
+            this.$router.push({path: '/login'})
             this.$store.token = '';
         }
     },

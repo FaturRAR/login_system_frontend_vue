@@ -3,11 +3,19 @@ import axios from 'axios';
 const URI = 'http://localhost:8080/api';
 
 class UserService {
-
-    getUser(token){
+    getOne(email){
         return axios(
             {
-                method: 'GET', 
+                method: 'GET',  
+                url: `${URI}/user/${email}`, 
+            }
+        )
+    }
+
+    getAllUser(token){
+        return axios(
+            {
+                method: 'GET',  
                 url: `${URI}/user`, 
                 headers: {'x-access-token': token}
             }
@@ -31,6 +39,16 @@ class UserService {
                 url: `${URI}/login`, 
                 data
             }, 
+        )
+    }
+
+    changePassword(id, data){
+        return axios(
+            {
+                method: 'PUT',
+                url: `${URI}/password/${id}`, 
+                data
+            }
         )
     }
 

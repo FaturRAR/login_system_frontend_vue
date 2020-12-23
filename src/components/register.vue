@@ -1,7 +1,7 @@
 <template>
     <div class="container-md">
         <form action="" style="max-width: 400px;" class="border px-5 py-4 mx-auto my-5 rounded">
-            <h2>Register</h2>
+            <h3>Register</h3>
             <div v-if="error" class="alert alert-danger" role="alert">
                 {{errorMessage}}
             </div>
@@ -64,7 +64,7 @@ export default {
                             this.errorMessage = res.data.message
                             this.error = true
                         } else {
-                            this.$router.push({name: 'login'})
+                            this.$router.push({path: '/login'})
                         }
                     })
                     .catch(err => {
