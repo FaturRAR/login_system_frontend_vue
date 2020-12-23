@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URI = 'http://localhost:8080/api';
+const URI = 'https://loginsystemrar.herokuapp.com/api';
 
 class UserService {
     getOne(email){

@@ -42,7 +42,6 @@ export default {
             }
             Service.login(data)
                 .then(user => {
-                    console.log(user)
                     if(user.data.auth == false){
                         this.errorMessage = user.data.message;
                         this.error = true

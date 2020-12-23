@@ -36,7 +36,7 @@ export default {
             Services.getAllUser(this.$store.token)
                 .then(user => {
                         this.users = user.data;
-                    })
+                })
                 .catch(() => {
                     this.$router.push({path: '/login'})
                 })

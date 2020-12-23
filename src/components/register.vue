@@ -59,7 +59,6 @@ export default {
             } else {
                 Service.register(data)
                     .then((res) => {
-                        console.log(res)
                         if(res.data.message){
                             this.errorMessage = res.data.message
                             this.error = true
